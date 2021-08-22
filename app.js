@@ -1,9 +1,17 @@
 var btnCheck = document.querySelector("#btn-check");
 var selectDate = document.querySelector("#selectDate");
 var selectNumber = document.querySelector("#selectNumber");
+var output = document.querySelector("#output");
 
 function clickEventHnadler() {
-    replaceCharacterandAddNumber(selectDate.value);
+    var bdate = selectDate.value;
+    var number = selectNumber.value;
+
+    if (bdate != 0 && number != 0) {
+        replaceCharacterandAddNumber(bdate);
+    } else {
+        output.innerText = "Please fill both the fields..";
+    }
 }
 
 function replaceCharacterandAddNumber(birthdate) {
@@ -17,11 +25,10 @@ function replaceCharacterandAddNumber(birthdate) {
 }
 
 function checkDivisible(sum) {
-    if (sum % selectNumber.value == 0){
-        console.log("Yeahhh...Your birthdate is lucky 😎😎");
-    }
-    else{
-        console.log("Ooops...Your birthdate is not lucky 😞😞");
+    if (sum % selectNumber.value == 0) {
+        output.innerText = "Yayyy...Your birthdate is lucky 😎😎";
+    } else {
+        output.innerText = "Ooops...Your birthdate is not lucky 😞😞";
     }
 }
 
